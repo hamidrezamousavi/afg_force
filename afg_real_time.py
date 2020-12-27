@@ -19,10 +19,11 @@ def read_real_time():
     
     global data, unit
     raw_data = []
-    temp = []
-    ser = serial.Serial('COM1', 9600, timeout=0.1)
+    
+    ser = serial.Serial('COM1', 9600, timeout=0.2)
     
     while reading_data:
+        temp = []
         s = ser.read(1000)
         raw_data = s.decode('utf8','ignore').split()
         #convert data to float list   
@@ -38,7 +39,8 @@ def read_real_time():
             mean = 0
         
         data.append(mean)
-        
+        print(data[-1])
+        print(temp)
     ser.close()
 
    

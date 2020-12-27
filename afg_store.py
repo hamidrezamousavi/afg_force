@@ -7,7 +7,7 @@ from mytable import My_Table
 
 def read_store():
 
-    ser = serial.Serial('COM1', 9600, timeout=1)
+    ser = serial.Serial('COM1', 9600, timeout=5)
     if not ser.is_open:
             msg.showerror('','COM1 IS NOT OPEN')
    
