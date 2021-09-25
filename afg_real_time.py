@@ -5,6 +5,7 @@ from threading import Thread
 from mytable import My_Table
 import tkinter.font as tkfont
 import serial
+from toexcel import write_to_excel
 
 #data and unit are global variable that share read data between function
 data = []
@@ -39,8 +40,7 @@ def read_real_time():
             mean = 0
         
         data.append(mean)
-        print(data[-1])
-        print(temp)
+        
     ser.close()
 
    
@@ -219,7 +219,17 @@ def real_time_func(root):
             
             cal_button = tk.Button(root,text='  محاسبه  ',command=cal)
             cal_button.grid(column=41,row=6)
+            
+            
+            def export():
+                write_to_excel(data,unit)
+            
+            
+            export_button = tk.Button(root,text='  انتقال به اکسل  ',command=export)
+            export_button.grid(column=41,row=10)
+            
             draw_real_time(data,unit)
+            
     show()
     
   
