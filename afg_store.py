@@ -46,6 +46,7 @@ def draw_store_data(data,unit):
     plt.show()
 
 def store_data_func(root):
+    
     data,unit = read_store()
     if not(data == 0):#if device isnot in correct mode bypass function
         
